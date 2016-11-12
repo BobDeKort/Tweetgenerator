@@ -3,14 +3,36 @@ import random
 app = Flask(__name__)
 filePath = 'text/sampleText.txt'
 listOfChars = [',', '"', ',', '.', '?', '!', ':', ';', '-', '/']
+amountOfWords = 10
 
 
 @app.route('/')
-def hello_world():
+def main():
+    return("Hello! Try /sentence or /word!")
+
+
+@app.route('/sentence')
+def sentence():
     histogram = makeHistogram(filePath)
-    probabilityList = getProbabilities(histogram)
-    randWord = randomWordWithProbability(probabilityList)
-    return('random word: ' + randWord)
+    sentence = randomSentence(histogram, amountOfWords)
+    return ("Your random sentence is: " + sentence)
+
+
+@app.route('/word')
+def word():
+    histogram = makeHistogram(filePath)
+    probList = getProbabilities(histogram)
+    randomWord = randomWordWithProbability(probList)
+    return("Your random word is: " + randomWord)
+
+
+def randomSentence(histogram, numberOfWords):
+    sentence = ""
+    for _ in range(numberOfWords):
+        probList = getProbabilities(histogram)
+        randWord = randomWordWithProbability(probList)
+        sentence = sentence + " " + randWord
+    return sentence
 
 
 def makeHistogram(filePath):  # returns dictionary
