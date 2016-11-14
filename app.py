@@ -76,3 +76,6 @@ def getTotalAmountOfWords(histogram):
         count = histogram[key]
         total += count
     return total
+
+if __name__ == "__main__":
+    app.run()
