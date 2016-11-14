@@ -26,6 +26,14 @@ def word():
     randomWord = randomWordWithProbability(probList)
     return("Your random word is: " + randomWord)
 
+
+@app.route('/sentence/<wordCount>')
+def sentenceWithAmountOfWords(wordCount):
+    histogram = makeHistogram(filePath)
+    sentence = randomSentence(histogram, wordCount)
+    return ("Your random sentence is: " + sentence)
+
+
 # Functions
 
 
