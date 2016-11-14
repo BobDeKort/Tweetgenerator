@@ -1,7 +1,7 @@
 import random
 
 
-def randomSentence(histogram, numberOfWords):
+def getRandomSentence(histogram, numberOfWords):
     sentence = ''
     for _ in range(numberOfWords):
         probList = getProbabilities(histogram)
