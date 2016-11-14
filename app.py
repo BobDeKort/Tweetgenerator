@@ -2,7 +2,7 @@ from flask import Flask
 import random
 import os
 app = Flask(__name__)
-filePath = 'text/sampleText.txt'
+filePath = 'text/sherlockHolmes.txt'
 listOfChars = [',', '"', ',', '.', '?', '!', ':', ';', '-', '/']
 amountOfWords = 10
 
