@@ -30,7 +30,7 @@ def word():
 @app.route('/sentence/<wordCount>')
 def sentenceWithAmountOfWords(wordCount):
     histogram = makeHistogram(filePath)
-    sentence = randomSentence(histogram, wordCount)
+    sentence = randomSentence(histogram, int(wordCount))
     return ("Your random sentence is: " + sentence)
 
 
