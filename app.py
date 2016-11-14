@@ -26,6 +26,8 @@ def word():
     randomWord = randomWordWithProbability(probList)
     return("Your random word is: " + randomWord)
 
+# Functions
+
 
 def randomSentence(histogram, numberOfWords):
     sentence = ""
